@@ -10,7 +10,7 @@
 
 - name: Restart service sshd
   when: disable_passwds.changed
-    ansible.builtin.service:
-      name: sshd
-      state: restarted
+  ansible.builtin.service:
+    name: sshd
+    state: restarted
   
