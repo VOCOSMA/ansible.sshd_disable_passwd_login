@@ -1,0 +1,9 @@
+---
+- name: Disable PasswordAuthentication
+  lineinfile:
+    path: /etc/ssh/sshdd_config
+    regexp: "^[#]? PasswordAuthentication"
+    line: "PasswordAuthentication no"
+  tags:
+    - ssh
+  
