@@ -1,16 +1,18 @@
 ---
 - name: Disable PasswordAuthentication
-  lineinfile:
-    path: /etc/ssh/sshd_config
-    regexp: "^[#]?\\s?PasswordAuthentication"
-    line: "PasswordAuthentication no"
   tags:
     - ssh
-  register: disable_passwds
+  block:
+    - name: Disable PasswordAuthentication in sshd config
+      lineinfile:
+        path: /etc/ssh/sshd_config
+        regexp: "^[#]?\\s?PasswordAuthentication"
+        line: "PasswordAuthentication no"
+      register: disable_passwds
 
-- name: Restart service sshd
-  when: disable_passwds.changed
-  ansible.builtin.service:
-    name: sshd
-    state: restarted
+    - name: Restart service sshd
+      when: disable_passwds.changed
+      ansible.builtin.service:
+        name: sshd
+        state: restarted
   
