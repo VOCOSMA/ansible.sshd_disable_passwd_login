@@ -4,7 +4,7 @@
     - ssh
   block:
     - name: Disable PasswordAuthentication in sshd config
-      lineinfile:
+      ansible.builtin.lineinfile:
         path: /etc/ssh/sshd_config
         regexp: "^[#]?\\s?PasswordAuthentication"
         line: "PasswordAuthentication no"
