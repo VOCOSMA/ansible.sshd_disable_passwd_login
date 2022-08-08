@@ -7,7 +7,6 @@ Role to prevent password logins to sshd.
 ## Example Playbook
 
 ```yml
----
 - hosts: host-pattern
   roles:
     - ssh-disable-passwd-login
