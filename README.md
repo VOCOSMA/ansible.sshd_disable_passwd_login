@@ -9,7 +9,7 @@ Role to prevent password logins to sshd.
 ```yml
 - hosts: host-pattern
   roles:
-    - ssh-disable-passwd-login
+    - sshd_disable_passwd_login
 ```
 
 ## License
